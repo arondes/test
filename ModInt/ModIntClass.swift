@@ -164,4 +164,3 @@ class ModInt{
         return " setv\n getv\n getd\n ==\n !=\n +\n -\n *\n /\n **\n"
     }
 }
-
