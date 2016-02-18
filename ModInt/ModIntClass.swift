@@ -64,13 +64,17 @@ func *(left: Int, right: ModInt)  -> ModInt{
     return  ModInt((left*right.i_value)%right.i_divisor,right.i_divisor)
 }
 
-infix operator ** { associativity left precedence 170 }
+infix operator ** { associativity right precedence 170 }
 
 func **(left: ModInt, right: Int)  -> ModInt{
     let temp=pow(Double(left.i_value),Double(right))
     return  ModInt(Int(round(temp))%left.i_divisor,left.i_divisor)
 }
 
+func **(left: Int, right: Int)  -> Int{
+    let temp=pow(Double(left),Double(right))
+    return Int(temp)
+}
 
 func -(left: ModInt, right: ModInt)  -> ModInt{
     if(left.i_divisor != right.i_divisor){
