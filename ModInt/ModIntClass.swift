@@ -71,6 +71,10 @@ func **(left: ModInt, right: Int)  -> ModInt{
     return  ModInt(Int(round(temp))%left.i_divisor,left.i_divisor)
 }
 
+func **(left: Int, right: Int)  -> Int{
+    let temp=pow(Double(left),Double(right))
+    return Int(temp)
+}
 
 func -(left: ModInt, right: ModInt)  -> ModInt{
     if(left.i_divisor != right.i_divisor){
