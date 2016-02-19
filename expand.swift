@@ -14,8 +14,11 @@ func expand(f:(Double)->(Double?),_ left:Double,_ right:Double)->(Double)->(Doub
     func newf(newx: Double)-> Double{
         let period=right-left
         let realx=newx-Double(Int(newx/period))*period
+        if(f(realx)==nil){
+            return 0
+        }
         return f(realx)!
     }
     return newf
 }
-print(expand(somefunc,0.0,10.0)(45))
+print(expand(somefunc,0.0,10.0)(19))
