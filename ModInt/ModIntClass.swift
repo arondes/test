@@ -204,7 +204,6 @@ func seq(start: Double,_ end: Double,_ by: Double)->[Double] {
         for i in 0...length{
             result.append(start-by*Double(i))
         }
-        
     }
     return result
 }
