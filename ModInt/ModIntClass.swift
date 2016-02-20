@@ -139,6 +139,12 @@ func print(x: ModInt){
     print("\(x.i_value) mod \(x.i_divisor)")
 }
 
+func print(x: [ModInt]){
+    for (_,i) in x.enumerate() {
+        print("\(i.i_value) mod \(i.i_divisor)")
+    }
+}
+
 class ModInt{
     var i_value: Int
     let i_divisor: Int
@@ -167,4 +173,37 @@ class ModInt{
     func help() ->String{
         return " setv\n getv\n getd\n ==\n !=\n +\n -\n *\n /\n **\n"
     }
+}
+
+func seq(start: ModInt,_ end: ModInt)->[ModInt]{
+    if(start==end){
+        return [start]
+    }
+    else
+    {
+        var result = [ModInt]()
+        var temp=start
+        while (temp != end){
+            result.append(temp)
+            temp=temp+1
+        }
+        result.append(end)
+        return result
+    }
+}
+
+func seq(start: Double,_ end: Double,_ by: Double)->[Double] {
+    let length: Int = Int(abs(round((end-start)/by)))
+    var result = [Double]()
+    if start >= end{
+        for i in 0...length{
+            result.append(start+by*Double(i))
+        }
+    }
+    else{
+        for i in 0...length{
+            result.append(start-by*Double(i))
+        }
+    }
+    return result
 }
